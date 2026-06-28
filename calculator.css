@@ -20,20 +20,73 @@ body {
   padding: 15px;
   border-radius: 12px 12px 40px 40px;  
 }
-.display {
+#display {
   
 
-   background: #9aab89;        
+
+background: #9aab89;
+    color: #1a2e1a;
+    font-family: 'Courier New', monospace;
+    font-size: 22px;
+    font-weight: bold;
+    text-align: right;
+    padding: 10px 15px;          
+    border-radius: 5px;
+    border: 2px solid #888;
+    margin-bottom: 20px;
+    margin-top: 15px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;      
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   /* background: #9aab89;        
   color: #1a2e1a;
   font-family: 'Courier New', monospace;
-  font-size: 28px;
+  font-size: 20px;
   text-align: right;
   padding: 30px;
-  border-radius:10px;
+  border-radius:5px;
   border: 2px  #888;
   margin-bottom: 25px;
   margin-top: 15px;
-}
+   overflow: hidden;      
+  white-space: nowrap; 
+
+
+  height: 70px;          
+
+  
+  display: flex;          
+  align-items: center;    
+  justify-content: flex-end;
+} */
 .buttons {
   display: grid; 
   grid-template-columns: repeat(4, 1fr);
