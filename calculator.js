@@ -106,7 +106,8 @@ addInput("+");
 
 sqrt.addEventListener("click" , () =>{
   addInput("√");
-
+equals.removeEventListener("click", calculation); 
+  equals.addEventListener("click", squareroot);    
 });
 
 
@@ -130,44 +131,32 @@ divide.addEventListener("click" , () => {
   addInput("/");
 });
 
-
-// equals.addEventListener("click",() => {
-
-
-//   if (displaystring.length > 0) {
-//     let result = eval(displaystring);
-//     //   console.log(result);
-//     output.textContent = result;
-//     displaystring = result;
-    
-//   }
   
-// });
-
-
-equals.addEventListener("click",() => {
+    
+  
+function squareroot() {
   if (displaystring.length > 0) {
-    let expression = displaystring;
+    let displayArray = displaystring.split("");
+    displayArray.shift();                        
+    let actualNumberstring = displayArray.join("");
+    let actualNumber = parseFloat(actualNumberstring); 
+    let result = Math.sqrt(actualNumber);
+    displaystring = parseFloat(result.toFixed(10)) + ""; 
+    output.textContent = displaystring;
     
-    
-    if (expression.includes("√")) {
-      expression = expression.replace("√", "Math.sqrt(");
-      expression += ")";
-    }
-      
-    let result = eval(expression);
-
-
-     if (!Number.isInteger(result)) {
-      result = parseFloat(result.tofixed);
-    }
-    output.textContent = result;
-    displaystring = result;
-    
+    equals.removeEventListener("click", squareroot);
+    equals.addEventListener("click", calculation);
   }
-});
+}
 
 
+
+
+
+
+
+
+equals.addEventListener("click", calculation);
 
 
 
@@ -178,7 +167,7 @@ equals.addEventListener("click",() => {
 
 
 clear.addEventListener("click", () => {
-  displaystring = " ";
+  displaystring = "";
   output.textContent = displaystring;
 });
 
@@ -189,3 +178,15 @@ del.addEventListener("click", () => {
   displaystring = displayArray.join("");
   output.textContent = displaystring;
 });
+
+
+
+function calculation() {
+  if (displaystring.length > 0) {
+    let result = eval(displaystring);
+      // console.log(result);
+    
+    displaystring = result + "";
+    output.textContent = displaystring;
+  }
+}
